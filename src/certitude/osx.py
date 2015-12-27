@@ -120,3 +120,7 @@ class CertificateFile(object):
     def __exit__(self, type, value, traceback):
         self.close()
         return False  # Never swallow exceptions
+
+    # Proxy
+    def __getattr__(self, name):
+        return getattr(self._fobj, name)
