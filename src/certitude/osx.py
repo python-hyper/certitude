@@ -59,17 +59,8 @@ class CertificateFile(object):
     that with the ``build`` method.
     """
     def __init__(self):
-        self._path = None
-
-    @property
-    def path(self):
-        """
-        The path to the file containing the PEM data.
-        """
-        if self._path is None:
-            self.build()
-
-        return self._path
+        self.path = None
+        self._fobj = None
 
     def build(self):
         """
@@ -79,22 +70,31 @@ class CertificateFile(object):
         file with the updated values. Otherwise, will allocate a temporary
         file.
         """
-        if self._path is None:
-            self._get_tempfile()
-            assert self._path is not None
+        if self._fobj is not None:
+            self._fobj.close()
+            self._fobj = None
 
-        with open(self._path, 'wb') as f:
+        if self.path is None:
+            self._get_tempfile()
+            assert self.path is not None
+
+        with open(self.path, 'wb') as f:
             f.write(certificate_string())
             f.truncate()
 
-    def close(self):
+        self._fobj = open(self.path, 'rb')
+
+    def destroy(self):
         """
         Destroys the temporary file.
         """
-        if self._path is not None:
-            self._destroy_tempfile()
+        if self._fobj is not None:
+            self._fobj.close()
+            self._fobj = None
 
-        self._path = None
+        if self.path is not None:
+            self._destroy_tempfile()
+            self.path = None
 
     def _get_tempfile(self):
         """
@@ -102,15 +102,15 @@ class CertificateFile(object):
         """
         fd, path = tempfile.mkstemp(suffix='.pem')
 
-        # Don't hold the file open, we don't need it.
+        # Don't hold the file descriptor open, we don't need it.
         os.close(fd)
-        self._path = path
+        self.path = path
 
     def _destroy_tempfile(self):
         """
         Actually destroys the temporary file.
         """
-        os.remove(self._path)
+        os.remove(self.path)
 
     # Context Manager Protocol
     def __enter__(self):
@@ -118,9 +118,13 @@ class CertificateFile(object):
         return self
 
     def __exit__(self, type, value, traceback):
-        self.close()
+        self.destroy()
         return False  # Never swallow exceptions
 
     # Proxy
     def __getattr__(self, name):
         return getattr(self._fobj, name)
+
+    # Annoyingly, a finalizer
+    def __del__(self):
+        self.destroy()
