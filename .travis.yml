@@ -1,0 +1,28 @@
+language: python
+
+# We expressly write out the build matrix here because we need to set the
+# appropriate target for each platform. Happily, because there's no Linux
+# support yet, this is pretty easy!
+matrix:
+  include:
+    - language: generic
+      os: osx
+      env: TOXENV=py27
+    - language: generic
+      os: osx
+      env: TOXENV=py33
+    - language: generic
+      os: osx
+      env: TOXENV=py34
+    - language: generic
+      os: osx
+      env: TOXENV=py35
+    - language: generic
+      os: osx
+      env: TOXENV=pypy
+
+install:
+  - ./.travis/install.sh
+
+script:
+  - ./.travis/run.sh

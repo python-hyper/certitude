@@ -1,0 +1,3 @@
+[submodule "src/rust-certitude"]
+	path = src/rust-certitude
+	url = git://github.com/Lukasa/rust-certitude.git

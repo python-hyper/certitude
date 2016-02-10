@@ -1,0 +1,2 @@
+include README.rst LICENSE rust_ext.py
+recursive-include src/rust-certitude *.rs *.toml
