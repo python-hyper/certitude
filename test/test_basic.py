@@ -24,3 +24,27 @@ class TestValidation(object):
         assert not certitude.validate_cert_chain(
             certifi_chain, u'http2bin.org'
         )
+
+    def test_reject_expired(self, expired):
+        """
+        We fail to validate expired certificates.
+        """
+        assert not certitude.validate_cert_chain(
+            expired, u'expired.badssl.com'
+        )
+
+    def test_reject_invalid_host(self, wrong_host):
+        """
+        We fail to validate certificates that don't match their host.
+        """
+        assert not certitude.validate_cert_chain(
+            wrong_host, u'wrong.host.badssl.com'
+        )
+
+    def test_reject_self_signed(self, self_signed):
+        """
+        We fail to validate self-signed certs.
+        """
+        assert not certitude.validate_cert_chain(
+            self_signed, u'self-signed.badssl.com'
+        )
