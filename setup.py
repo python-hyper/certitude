@@ -1,10 +1,13 @@
 #!/usr/bin/env python
+import os.path
+
 from setuptools import setup, find_packages
+
+from rust_ext import build_rust_cmdclass, install_lib_including_rust
 
 long_description = (
     open("README.rst").read()
 )
-
 
 setup(
     name="certitude",
@@ -18,12 +21,25 @@ setup(
     author="Cory Benfield",
     author_email="cory@lukasa.co.uk",
 
-    install_requires=[
-        "cryptography>=1.1.2,<2.0",
+    setup_requires=[
+        "cffi>=1.0.0",
     ],
+    install_requires=[
+        "cffi>=1.0.0",
+    ],
+
+    cffi_modules=["src/certitude/build.py:ffi"],
 
     packages=find_packages('src'),
     package_dir={'': 'src'},
+
+    cmdclass={
+        "build_rust": build_rust_cmdclass(
+            os.path.join("src", "rust-certitude", "c-certitude", "Cargo.toml")
+        ),
+        "install_lib": install_lib_including_rust,
+    },
+    ext_package="certitude",
 
     classifiers=[
         "Programming Language :: Python :: Implementation :: CPython",
