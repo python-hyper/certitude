@@ -18,15 +18,10 @@ CERT_DELIMITER = '-----END CERTIFICATE-----\n'
 HERE = os.path.dirname(__file__)
 
 
-@pytest.fixture
-def certifi_chain():
+def build_chain_from_pem(chain):
     """
-    Returns the trust chain associated with certifi.io. Note that this expires
-    in 2018.
+    Splits a PEM cert chain and converts them to DER bytes.
     """
-    with open(os.path.join(HERE, 'certifi_chain.pem'), 'r') as f:
-        chain = f.read()
-
     certs = chain.split(CERT_DELIMITER)
 
     parsed_certs = (
@@ -39,5 +34,59 @@ def certifi_chain():
     encoded_certs = [
         cert.public_bytes(Encoding.DER) for cert in parsed_certs
     ]
+    return encoded_certs
+
+
+@pytest.fixture
+def certifi_chain():
+    """
+    Returns the trust chain associated with certifi.io. Note that this expires
+    in 2018.
+    """
+    with open(os.path.join(HERE, 'fixtures', 'certifi_chain.pem'), 'r') as f:
+        chain = f.read()
+
+    encoded_certs = build_chain_from_pem(chain)
     assert len(encoded_certs) == 3
+    return encoded_certs
+
+
+@pytest.fixture
+def expired():
+    """
+    Returns the cert chain from expired.badssl.com.
+    """
+    with open(os.path.join(HERE, 'fixtures', 'expired-badssl.pem'), 'r') as f:
+        chain = f.read()
+
+    encoded_certs = build_chain_from_pem(chain)
+    assert len(encoded_certs) == 3
+    return encoded_certs
+
+
+@pytest.fixture
+def wrong_host():
+    """
+    Returns the cert chain from wrong.host.badssl.com.
+    """
+    path = os.path.join(HERE, 'fixtures', 'wronghost-badssl.pem')
+    with open(path, 'r') as f:
+        chain = f.read()
+
+    encoded_certs = build_chain_from_pem(chain)
+    assert len(encoded_certs) == 3
+    return encoded_certs
+
+
+@pytest.fixture
+def self_signed():
+    """
+    Returns the cert chain from selfsigned.badssl.com.
+    """
+    path = os.path.join(HERE, 'fixtures', 'selfsigned-badssl.pem')
+    with open(path, 'r') as f:
+        chain = f.read()
+
+    encoded_certs = build_chain_from_pem(chain)
+    assert len(encoded_certs) == 1
     return encoded_certs
