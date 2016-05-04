@@ -5,7 +5,7 @@ clone_depth: 1
 environment:
   matrix:
     - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.9.0
+      RUST: 1.8.0
       PYTHON: "C:\\Python35"
       platform: Win32
 
@@ -20,7 +20,7 @@ environment:
       platform: Win32
 
     - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.9.0
+      RUST: 1.8.0
       PYTHON: "C:\\Python35-x64"
       platform: x64
 
@@ -35,7 +35,7 @@ environment:
       platform: x64
 
     - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.9.0
+      RUST: 1.8.0
       PYTHON: "C:\\Python34"
       DISTUTILS_USE_SDK: "1"
       platform: Win32
@@ -53,7 +53,7 @@ environment:
       platform: Win32
 
     - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.9.0
+      RUST: 1.8.0
       PYTHON: "C:\\Python34-x64"
       DISTUTILS_USE_SDK: "1"
       platform: x64
@@ -71,7 +71,7 @@ environment:
       platform: x64
 
     - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.9.0
+      RUST: 1.8.0
       PYTHON: "C:\\Python33"
       DISTUTILS_USE_SDK: "1"
       platform: Win32
@@ -89,7 +89,7 @@ environment:
       platform: Win32
 
     - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.9.0
+      RUST: 1.8.0
       PYTHON: "C:\\Python33-x64"
       DISTUTILS_USE_SDK: "1"
       platform: x64
@@ -107,7 +107,7 @@ environment:
       platform: x64
 
     - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.9.0
+      RUST: 1.8.0
       PYTHON: "C:\\Python27"
       platform: Win32
 
@@ -122,7 +122,7 @@ environment:
       platform: Win32
 
     - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.9.0
+      RUST: 1.8.0
       PYTHON: "C:\\Python27-x64"
       platform: x64
 
