@@ -67,7 +67,7 @@ if %ERRORLEVEL% NEQ 0 exit 1
 python -m pip install -r test_requirements.txt
 if %ERRORLEVEL% NEQ 0 exit 1
 
-python -m pip install .
+appveyor\build.cmd python -m pip install .
 if %ERRORLEVEL% NEQ 0 exit 1
 
 py.test test/
