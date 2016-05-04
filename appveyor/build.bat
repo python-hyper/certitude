@@ -61,7 +61,7 @@ cl /?
 rustc --version
 cargo --version
 
-python -m pip install -U setuptools pip
+python -m pip install -U setuptools pip wheel
 if %ERRORLEVEL% NEQ 0 exit 1
 
 python -m pip install -r test_requirements.txt
