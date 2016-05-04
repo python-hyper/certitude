@@ -67,10 +67,10 @@ if %ERRORLEVEL% NEQ 0 exit 1
 python -m pip install -r test_requirements.txt
 if %ERRORLEVEL% NEQ 0 exit 1
 
-appveyor\build.cmd python -m pip install .
+CALL appveyor\build.cmd python -m pip install .
 if %ERRORLEVEL% NEQ 0 exit 1
 
 py.test test/
 if %ERRORLEVEL% NEQ 0 exit 1
 
-appveyor\build.cmd python setup.py bdist_wheel
+CALL appveyor\build.cmd python setup.py bdist_wheel
