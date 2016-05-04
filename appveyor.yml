@@ -5,45 +5,33 @@ clone_depth: 1
 environment:
   matrix:
     - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.5.0
+      RUST: 1.9.0
       PYTHON: "C:\\Python35"
-      PYTHON_VERSION: "3.5.0"
-      PYTHON_ARCH: "32"
       platform: Win32
 
     - TOOLCHAIN_VERSION: 14.0
       RUST: beta
       PYTHON: "C:\\Python35"
-      PYTHON_VERSION: "3.5.0"
-      PYTHON_ARCH: "32"
       platform: Win32
 
     - TOOLCHAIN_VERSION: 14.0
       RUST: nightly
       PYTHON: "C:\\Python35"
-      PYTHON_VERSION: "3.5.0"
-      PYTHON_ARCH: "32"
       platform: Win32
 
     - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.5.0
+      RUST: 1.9.0
       PYTHON: "C:\\Python35-x64"
-      PYTHON_VERSION: "3.5.0"
-      PYTHON_ARCH: "64"
       platform: x64
 
     - TOOLCHAIN_VERSION: 14.0
       RUST: beta
       PYTHON: "C:\\Python35-x64"
-      PYTHON_VERSION: "3.5.0"
-      PYTHON_ARCH: "64"
       platform: x64
 
     - TOOLCHAIN_VERSION: 14.0
       RUST: nightly
       PYTHON: "C:\\Python35-x64"
-      PYTHON_VERSION: "3.5.0"
-      PYTHON_ARCH: "64"
       platform: x64
 
 matrix:
