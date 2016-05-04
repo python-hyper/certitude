@@ -72,3 +72,5 @@ if %ERRORLEVEL% NEQ 0 exit 1
 
 py.test test/
 if %ERRORLEVEL% NEQ 0 exit 1
+
+appveyor\build.cmd python setup.py bdist_wheel

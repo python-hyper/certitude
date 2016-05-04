@@ -145,8 +145,5 @@ install:
 
 build_script: appveyor/build.bat
 
-after_test:
-  - "appveyor\\build.cmd %PYTHON%\\python.exe setup.py bdist_wheel"
-
 artifacts:
   - path: dist\*
