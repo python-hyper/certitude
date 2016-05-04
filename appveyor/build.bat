@@ -24,6 +24,7 @@ set VCVARSALL="C:\Program Files (x86)\Microsoft Visual Studio %TOOLCHAIN_VERSION
 if [%Platform%] NEQ [x64] goto win32
 set TARGET_ARCH=x86_64
 set TARGET_PROGRAM_FILES=%ProgramFiles%
+set WHEEL_PLAT_NAME=win_amd64
 call %VCVARSALL% amd64
 if %ERRORLEVEL% NEQ 0 exit 1
 goto download
@@ -33,6 +34,7 @@ echo on
 if [%Platform%] NEQ [Win32] exit 1
 set TARGET_ARCH=i686
 set TARGET_PROGRAM_FILES=%ProgramFiles(x86)%
+set WHEEL_PLAT_NAME=win32
 call %VCVARSALL% amd64_x86
 if %ERRORLEVEL% NEQ 0 exit 1
 goto download
@@ -67,10 +69,12 @@ if %ERRORLEVEL% NEQ 0 exit 1
 python -m pip install -r test_requirements.txt
 if %ERRORLEVEL% NEQ 0 exit 1
 
-CALL appveyor\build.cmd python -m pip install .
+python -m pip install .
 if %ERRORLEVEL% NEQ 0 exit 1
 
 py.test test/
 if %ERRORLEVEL% NEQ 0 exit 1
 
-CALL appveyor\build.cmd python setup.py bdist_wheel
+REM We only need one 64-bit wheel and one 32-bit wheel for Windows.
+python setup.py bdist_wheel --plat-name %WHEEL_PLAT_NAME%
+if %ERRORLEVEL% NEQ 0 exit 1
