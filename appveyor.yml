@@ -34,14 +34,113 @@ environment:
       PYTHON: "C:\\Python35-x64"
       platform: x64
 
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: 1.9.0
+      PYTHON: "C:\\Python34"
+      DISTUTILS_USE_SDK: "1"
+      platform: Win32
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: beta
+      PYTHON: "C:\\Python34"
+      DISTUTILS_USE_SDK: "1"
+      platform: Win32
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: nightly
+      PYTHON: "C:\\Python34"
+      DISTUTILS_USE_SDK: "1"
+      platform: Win32
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: 1.9.0
+      PYTHON: "C:\\Python34-x64"
+      DISTUTILS_USE_SDK: "1"
+      platform: x64
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: beta
+      PYTHON: "C:\\Python34-x64"
+      DISTUTILS_USE_SDK: "1"
+      platform: x64
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: nightly
+      PYTHON: "C:\\Python34-x64"
+      DISTUTILS_USE_SDK: "1"
+      platform: x64
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: 1.9.0
+      PYTHON: "C:\\Python33"
+      DISTUTILS_USE_SDK: "1"
+      platform: Win32
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: beta
+      PYTHON: "C:\\Python33"
+      DISTUTILS_USE_SDK: "1"
+      platform: Win32
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: nightly
+      PYTHON: "C:\\Python33"
+      DISTUTILS_USE_SDK: "1"
+      platform: Win32
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: 1.9.0
+      PYTHON: "C:\\Python33-x64"
+      DISTUTILS_USE_SDK: "1"
+      platform: x64
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: beta
+      PYTHON: "C:\\Python33-x64"
+      DISTUTILS_USE_SDK: "1"
+      platform: x64
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: nightly
+      PYTHON: "C:\\Python33-x64"
+      DISTUTILS_USE_SDK: "1"
+      platform: x64
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: 1.9.0
+      PYTHON: "C:\\Python27"
+      platform: Win32
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: beta
+      PYTHON: "C:\\Python27"
+      platform: Win32
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: nightly
+      PYTHON: "C:\\Python27"
+      platform: Win32
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: 1.9.0
+      PYTHON: "C:\\Python27-x64"
+      platform: x64
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: beta
+      PYTHON: "C:\\Python27-x64"
+      platform: x64
+
+    - TOOLCHAIN_VERSION: 14.0
+      RUST: nightly
+      PYTHON: "C:\\Python27-x64"
+      platform: x64
+
 matrix:
   allow_failures:
     - RUST: nightly
 
 install:
-  # Install Python (from the official .msi of http://python.org) and pip when
-  # not already installed.
-  - "powershell ./appveyor/install.ps1"
   - "git submodule update --init --recursive"
 
 build_script: appveyor/build.bat
