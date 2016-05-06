@@ -39,4 +39,4 @@ pyenv rehash
 python -m pip install --user virtualenv
 python -m virtualenv ~/.venv
 source ~/.venv/bin/activate
-pip install tox
+pip install -U tox wheel
