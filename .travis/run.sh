@@ -9,3 +9,4 @@ eval "$(pyenv init -)"
 source ~/.venv/bin/activate
 
 tox
+python setup.py bdist_wheel
