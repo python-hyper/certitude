@@ -9,4 +9,4 @@ eval "$(pyenv init -)"
 source ~/.venv/bin/activate
 
 tox
-python setup.py bdist_wheel
+python setup.py bdist_wheel --plat-name "$PLATFORM_NAME"
