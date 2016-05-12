@@ -4,19 +4,19 @@ matrix:
   include:
   - language: generic
     os: osx
-    env: TOXENV=py27 MACOSX_DEPLOYMENT_TARGET=10.7 PLATFORM_NAME=macosx_10_7_intel
+    env: TOXENV=py27
   - language: generic
     os: osx
-    env: TOXENV=py33 MACOSX_DEPLOYMENT_TARGET=10.7 PLATFORM_NAME=macosx_10_7_intel
+    env: TOXENV=py33
   - language: generic
     os: osx
-    env: TOXENV=py34 MACOSX_DEPLOYMENT_TARGET=10.7 PLATFORM_NAME=macosx_10_7_intel
+    env: TOXENV=py34
   - language: generic
     os: osx
-    env: TOXENV=py35 MACOSX_DEPLOYMENT_TARGET=10.7 PLATFORM_NAME=macosx_10_7_intel
+    env: TOXENV=py35
   - language: generic
     os: osx
-    env: TOXENV=pypy MACOSX_DEPLOYMENT_TARGET=10.7 PLATFORM_NAME=macosx_10_7_intel
+    env: TOXENV=pypy
 
 install:
 - "./.travis/install.sh"
