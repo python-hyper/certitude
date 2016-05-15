@@ -11,7 +11,7 @@ long_description = (
 
 setup(
     name="certitude",
-    version="0.0.1",
+    version="1.0.0pre0",
 
     description="A library that provides access to system certificate stores.",
     long_description=open("README.rst").read(),
