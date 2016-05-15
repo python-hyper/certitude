@@ -29,6 +29,7 @@ deploy:
   api_key:
     secure: U8hnrZSRHNhF7ng+eqkKvcUR+hr+pPeq+Cem3dIJskd0g7+JHlB4c7kS0w85JC0Y7zLJf4/2Og3y0WI5Bd3uMPhArp9woP29OLrd+8HrGMMyQsWWe2ZfqL/EWyblKCIE+z6lqE+DiUI6RWIxXqiOj8hW8nkuZCEN3voXBjrBOPsvx12rAXcCTmbxA6i2xAyvOJN6HxzPsIPYdzwKJnKoji3A2EodbUK6W8/Hrpo7kDq8NUxL6wo4X98dt+Pc++6cWR5eXeoGDCsiyGVoptuxWSzixjKMKNz8n9CzgdcrTi0TPkVhBkwK65K9uulrx/yAXpPkFSJiT+/ll4N4CQrs1383QGUSVyy3/lek4jhhgwN6ByIB/5XoICZIaTw3etz7B7iaYyxQsNA3wlgIj6U8wJhP1nrIRFeIqI4/PPQaH6K+1UJGd9NZbMDgEe2flhjuqZWh2/ODSlirMrHmnE8I5SNgv5hKezEJhwwGa8quSX643Dxbp631IfgtP3fvQ807xqQE65K8mj+aAl3chIgJcX/cxnbmN4ZPPds8U4QTSR2MZZNizaFHxnwdHk32puMWM86cq/i+3riGtTSXlIaY9mm0ylqwMAt/KJwAJqTz91vBPkRM+ebSFq+xf8mLJlRzDd9vfL2Cjd9kBwokufezLsDg2Ewo39TgTMsAAcmSNr4=
   file: dist/*.whl
+  file_glob: true
   skip_cleanup: true
   on:
     tags: true
