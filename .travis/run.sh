@@ -8,6 +8,9 @@ PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 source ~/.venv/bin/activate
 
+export LDFLAGS="-L$(brew --prefix openssl)/lib"
+export CFLAGS="-I$(brew --prefix openssl)/include"
+
 tox
 
 MACOSX_DEPLOYMENT_TARGET="10.7"
