@@ -6,6 +6,7 @@ set -x
 # Update Homebrew and install Rust
 brew update
 brew install rust
+brew outdated openssl || brew upgrade openssl
 
 # Install PyEnv
 git clone https://github.com/yyuu/pyenv.git ~/.pyenv
@@ -39,4 +40,7 @@ pyenv rehash
 python -m pip install --user virtualenv
 python -m virtualenv ~/.venv
 source ~/.venv/bin/activate
+
+export LDFLAGS="-L$(brew --prefix openssl)/lib"
+export CFLAGS="-I$(brew --prefix openssl)/include"
 pip install -U tox wheel
