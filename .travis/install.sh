@@ -32,8 +32,8 @@ case "${TOXENV}" in
         pyenv global 3.5.1
         ;;
     pypy*)
-        pyenv install pypy-4.0.1
-        pyenv global pypy-4.0.1
+        pyenv install pypy-5.7.1
+        pyenv global pypy-5.7.1
         ;;
 esac
 pyenv rehash
