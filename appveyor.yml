@@ -69,39 +69,6 @@ environment:
 
     - TOOLCHAIN_VERSION: 14.0
       RUST: 1.17.0
-      PYTHON: "C:\\Python33"
-      platform: Win32
-
-    - TOOLCHAIN_VERSION: 14.0
-      RUST: beta
-      PYTHON: "C:\\Python33"
-      platform: Win32
-
-    - TOOLCHAIN_VERSION: 14.0
-      RUST: nightly
-      PYTHON: "C:\\Python33"
-      platform: Win32
-
-    - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.17.0
-      PYTHON: "C:\\Python33-x64"
-      DISTUTILS_USE_SDK: "1"
-      platform: x64
-
-    - TOOLCHAIN_VERSION: 14.0
-      RUST: beta
-      PYTHON: "C:\\Python33-x64"
-      DISTUTILS_USE_SDK: "1"
-      platform: x64
-
-    - TOOLCHAIN_VERSION: 14.0
-      RUST: nightly
-      PYTHON: "C:\\Python33-x64"
-      DISTUTILS_USE_SDK: "1"
-      platform: x64
-
-    - TOOLCHAIN_VERSION: 14.0
-      RUST: 1.17.0
       PYTHON: "C:\\Python27"
       platform: Win32
 
