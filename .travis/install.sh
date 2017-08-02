@@ -24,12 +24,16 @@ case "${TOXENV}" in
         pyenv global 3.3.6
         ;;
     py34)
-        pyenv install 3.4.4
-        pyenv global 3.4.4
+        pyenv install 3.4.6
+        pyenv global 3.4.6
         ;;
     py35)
-        pyenv install 3.5.1
-        pyenv global 3.5.1
+        pyenv install 3.5.3
+        pyenv global 3.5.3
+        ;;
+    py36)
+        pyenv install 3.6.2
+        pyenv global 3.6.2
         ;;
     pypy*)
         pyenv install pypy-5.7.1
