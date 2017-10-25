@@ -1,2 +1,2 @@
 pytest==3.2.3
-cryptography==2.1.1
+cryptography==2.1.2
