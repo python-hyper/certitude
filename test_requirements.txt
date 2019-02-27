@@ -1,2 +1,2 @@
 pytest==4.3.0
-cryptography==2.5
+cryptography==2.6
