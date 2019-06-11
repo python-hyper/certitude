@@ -1,2 +1,2 @@
-pytest==4.6.2
+pytest==4.6.3
 cryptography==2.7
